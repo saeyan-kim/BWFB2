@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Biweekly<br>Finance<br>Briefing</title>
+    <style>
+        body {
+            background: #F5EBE1;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px;
+            color: #1E1928;
+        }
+        img.header-logo {
+            width: 320px;
+            display: block;
+            margin: 0 auto 20px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .tab {
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        .tab button {
+            background-color: #ffffff;
+            float: left;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            outline: none;
+            cursor: pointer;
+            padding: 16px 32px;
+            font-size: 17px;
+            font-weight: bold;
+            color: #555055;
+            transition: 0.3s;
+            min-width: 180px;
+        }
+        .tab button:hover {
+            background-color: #F5EBE1;
+        }
+        .tab button.active {
+            background-color: #F54B1E;
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .accordion {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            padding: 14px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.05em;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        .accordion:hover {
+            background-color: #f1f1f1;
+        }
+        .brief {
+            font-size: 0.95em;
+            color: #555055;
+            margin: 4px 0 8px 0;
+            padding-left: 10px;
+        }
+        .panel {
+            padding: 0 18px 8px 18px;
+            background-color: white;
+            display: none;
+            overflow: hidden;
+            border-left: 3px solid #F54B1E;
+            margin-bottom: 10px;
+        }
+        a {
+            color: black;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    
+<div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 20px; margin-bottom: 40px; flex-wrap: wrap;">
+    <div style="flex-grow: 1;">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEwMCIgaGVpZ2h0PSIyNTMiIHZpZXdCb3g9IjAgMCAxMTAwIDI1MyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xMDUyLjYzIDE2OS41N0MxMDU4Ljc3IDE2Ny4wMjMgMTA2My41OCAxNjMuMjc0IDEwNjcuMDUgMTU4LjMzQzEwNzAuNSAxNTMuMzkzIDEwNzIuMjMgMTQ3LjM1IDEwNzIuMjMgMTQwLjIwMVYxMzguOTI0QzEwNzIuMjMgMTM2Ljg4MiAxMDcxLjU5IDEzNS4zMDUgMTA3MC4yOCAxMzQuMjA2QzEwNjguOTggMTMzLjA5MyAxMDY3LjA1IDEzMi43MTcgMTA2NC40NCAxMzMuMDUyTDEwMzMuMyAxMzcuMTQyQzEwMjUuNTEgMTM4LjE2NiAxMDE5LjM3IDE0MC4yMTUgMTAxNC44NyAxNDMuMjc0QzEwMTAuMzYgMTQ2LjMzMyAxMDA4LjEyIDE1MC43NjQgMTAwOC4xMiAxNTYuNTU1QzEwMDguMTIgMTYyLjAwNCAxMDEwLjE1IDE2Ni4xNjkgMTAxNC4yMSAxNjkuMDcxQzEwMTguMjggMTcxLjk2NiAxMDI0LjIgMTczLjQwNyAxMDMyIDE3My40MDdDMTAzOS44IDE3My40MDcgMTA0Ni40OSAxNzIuMTMgMTA1Mi42MyAxNjkuNTgzVjE2OS41N1pNOTkzLjIwNCAxODQuODg2Qzk4NC42MzIgMTc4LjA3OCA5ODAuMzU1IDE2OS4wNTEgOTgwLjM1NSAxNTcuODI1Qzk4MC4zNTUgMTQ2LjU5MiA5ODQuNzY4IDEzNy4xNzYgOTkzLjYwMSAxMzAuMTE1QzEwMDIuNDIgMTIzLjA1NSAxMDE0LjE4IDExOC41ODIgMTAyOC45IDExNi43MDRMMTA2NS40OSAxMTIuNjE0QzEwNjcuOTEgMTEyLjI3MyAxMDY5LjY4IDExMS41NTYgMTA3MC44MiAxMTAuNDVDMTA3MS45NCAxMDkuMzM3IDEwNzIuNTEgMTA3LjkzNyAxMDcyLjUxIDEwNi4yMzdDMTA3Mi41MSAxMDEuNjM0IDEwNzEuNDcgOTcuNzY5MyAxMDY5LjM4IDk0LjYyMTRDMTA2Ny4zMSA5MS40NjY3IDEwNjQuNCA4OS4wMDE3IDEwNjAuNjkgODcuMjA1OEMxMDU2Ljk2IDg1LjQxNjggMTA1Mi42NyA4NC41MjkxIDEwNDcuODQgODQuNTI5MUgxMDM1LjM5QzEwMjguMTIgODQuNTI5MSAxMDIyLjA2IDg2LjQwNjkgMTAxNy4yMiA5MC4xNDg5QzEwMTIuMzcgOTMuODk3NiAxMDA5Ljc3IDk5LjE3NiAxMDA5LjQzIDEwNS45ODRIOTgxLjE0MUM5ODEuNjYgOTcuMTQxMSA5ODQuNDIgODkuMzkwOSA5ODkuNDQxIDgyLjc0NjlDOTk0LjQ2MSA3Ni4xMDk3IDEwMDEuMDMgNzEuMDQzMSAxMDA5LjE3IDY3LjU1MzhDMTAxNy4zIDY0LjA2NDUgMTAyNi4xMyA2Mi4zMDk2IDEwMzUuNjMgNjIuMzA5NkgxMDQ3LjgzQzEwNTcuODYgNjIuMzA5NiAxMDY2Ljc3IDY0LjI2OTMgMTA3NC41NiA2OC4xODJDMTA4Mi4zNSA3Mi4xMDE1IDEwODguNTQgNzcuNTkxNSAxMDkzLjExIDg0LjY1ODhDMTA5Ny43IDkxLjcyNjIgMTEwMCA5OS45NDc2IDExMDAgMTA5LjMwOUwxMDk5Ljk0IDE5My4wOEgxMDc3LjM5TDEwNzcuNDEgMTgyLjc1NUMxMDc3LjQxIDE4MS43NzkgMTA3Ny4xNiAxODAuNzg5IDEwNzYuNTggMTc5Ljk5N0MxMDc1LjkzIDE3OS4xMjkgMTA3NS4wNyAxNzguNjM4IDEwNzQuMDQgMTc4LjUyMkMxMDcyLjQ4IDE3OC4zNTEgMTA3MC44NCAxNzkuMTIzIDEwNjkuMSAxODAuODE2QzEwNjQuNzggMTg0LjkwNiAxMDU4Ljk5IDE4OC4zMDcgMTA1MS43MyAxOTEuMDM4QzEwNDQuNDYgMTkzLjc1NiAxMDM2LjU5IDE5NS4xMjggMTAyOC4xIDE5NS4xMjhDMTAxMy40IDE5NS4xMjggMTAwMS43NiAxOTEuNzI4IDk5My4yMDQgMTg0LjkwNlYxODQuODg2WiIgZmlsbD0iI0Y1NEIxRSIvPg0KPHBhdGggZD0iTTg4MS43NjQgMTQuMjk0OUg5MDkuMDE5VjE5My4wNjlIODgxLjc2NFYxNC4yOTQ5WiIgZmlsbD0iI0Y1NEIxRSIvPg0KPHBhdGggZD0iTTk2Mi43MjcgNDEuMTFIOTMyLjYxNlYxNC4yOTQ5SDk2Mi43MjdWNDEuMTFaTTk2MS40MzYgNjQuMzYwNlYyMDguOTFDOTYxLjQzNiAyMjAuODMzIDk1OC41ODEgMjI5Ljg0NiA5NTIuODcgMjM1Ljk5MkM5NDcuMTYgMjQyLjExNyA5MzkuMDMxIDI0NS4xNzYgOTI4LjQ3IDI0NS4xNzZIOTA0Ljg1NVYyMjIuNDUxSDkyMC4xN0M5MjUuMDE0IDIyMi40NTEgOTI4LjUxMSAyMjEuMDkyIDkzMC42NzYgMjE4LjM2MUM5MzIuODQyIDIxNS42MyA5MzMuOTE0IDIxMS40NjQgOTMzLjkxNCAyMDUuODQ1VjY0LjM2MDZIOTYxLjQzNloiIGZpbGw9IiNGNTRCMUUiLz4NCjxwYXRoIGQ9Ik04MTcuNzQ3IDE2Ni4yNkM4MjMuMDIgMTYyLjUxOCA4MjcuMTczIDE1Ny4zNjMgODMwLjIwNiAxNTAuODE0QzgzMy4yMzIgMTQ0LjI2NiA4MzQuNzQ5IDEzNi44OTEgODM0Ljc0OSAxMjguNzI0QzgzNC43NDkgMTIwLjU1OCA4MzMuMjMyIDExMy4yMzggODMwLjIwNiAxMDYuNzU3QzgyNy4xNzMgMTAwLjI5MSA4MjMuMDIgOTUuMTM1NSA4MTcuNzQ3IDkxLjMxMTZDODEyLjQ2NiA4Ny40ODA5IDgwNi42MzMgODUuNTYyMSA4MDAuMjI1IDg1LjU2MjFINzkwLjEwOUM3ODMuNzA4IDg1LjU2MjEgNzc3Ljg2MSA4Ny40Mzk5IDc3Mi41ODcgOTEuMTgxOUM3NjcuMzA3IDk0LjkzMDcgNzYzLjE2MSAxMDAuMDM4IDc2MC4xMzQgMTA2LjUwNUM3NTcuMTAxIDExMi45NzggNzU1LjU5MiAxMjAuMzg3IDc1NS41OTIgMTI4LjcyNEM3NTUuNTkyIDEzNy4wNjIgNzU3LjEwMSAxNDQuNDcxIDc2MC4xMzQgMTUwLjk0NEM3NjMuMTYxIDE1Ny40MSA3NjcuMzA3IDE2Mi41MTggNzcyLjU4NyAxNjYuMjc0Qzc3Ny44NjEgMTcwLjAyMiA3ODMuNzA4IDE3MS44OTMgNzkwLjEwOSAxNzEuODkzSDgwMC4yMjVDODA2LjYzMyAxNzEuODkzIDgxMi40NjYgMTcwLjAyMiA4MTcuNzQ3IDE2Ni4yNzRWMTY2LjI2Wk03NTguMTgxIDE4Ni41NjFDNzQ4LjY1OCAxODAuODU5IDc0MS4xNzkgMTcyLjkzOCA3MzUuNzM0IDE2Mi44MTJDNzMwLjI4MyAxNTIuNjg1IDcyNy41NTEgMTQxLjMxNiA3MjcuNTUxIDEyOC43MTdDNzI3LjU1MSAxMTYuMTE5IDczMC4yNzYgMTA0Ljc1IDczNS43MzQgOTQuNjE2NkM3NDEuMTc5IDg0LjQ5MDEgNzQ4LjY3MiA3Ni41NjkyIDc1OC4xODEgNzAuODc0M0M3NjcuNjg5IDY1LjE3MjYgNzc4LjI1IDYyLjMxMTUgNzg5Ljg0MiA2Mi4zMTE1SDgwMC40ODVDODEyLjA3NyA2Mi4zMTE1IDgyMi42MjQgNjUuMTU5IDgzMi4xNDYgNzAuODc0M0M4NDEuNjU1IDc2LjU4MjggODQ5LjE0OSA4NC40OTAxIDg1NC41OTMgOTQuNjE2NkM4NjAuMDM3IDEwNC43NSA4NjIuNzc2IDExNi4xMTkgODYyLjc3NiAxMjguNzE3Qzg2Mi43NzYgMTQxLjMxNiA4NjAuMDkyIDE1Mi42ODUgODU0LjcyMyAxNjIuODEyQzg0OS4zNiAxNzIuOTM4IDg0MS44OCAxODAuODU5IDgzMi4yNzYgMTg2LjU2MUM4MjIuNjcyIDE5Mi4yNjkgODEyLjA3NyAxOTUuMTE3IDgwMC40ODUgMTk1LjExN0g3ODkuODQyQzc3OC4yNSAxOTUuMTE3IDc2Ny42ODkgMTkyLjI2OSA3NTguMTgxIDE4Ni41NjFaIiBmaWxsPSIjRjU0QjFFIi8+DQo8cGF0aCBkPSJNNjExLjkzMiA2NC4zNTIyVjcxLjUwMTVDNjExLjkzMiA3NC4yMzI5IDYxMi44MzQgNzUuOTc0MSA2MTQuNjU4IDc2LjczODlDNjE2LjQ3NSA3Ny41MTA1IDYxOC44NTIgNzYuNjk3OSA2MjEuNzg5IDc0LjMwOEM2MjUuNTg3IDcwLjcyOTkgNjMwLjA4OSA2Ny44NDE1IDYzNS4yOCA2NS42MjkxQzY0MC40NzkgNjMuNDIzNiA2NDUuOTIzIDYyLjMxMDUgNjUxLjYzNCA2Mi4zMTA1SDY2My44MjdDNjcyLjEyNyA2Mi4zMTA1IDY3OS44MzIgNjQuNDQxIDY4Ni45MjIgNjguNzAxOUM2OTQuMDIgNzIuOTYyOCA2OTkuNTk0IDc4LjgyODQgNzAzLjY1OCA4Ni4zMTkxQzcwNy43MjMgOTMuODE2NyA3MDkuNzU4IDEwMi4xNjEgNzA5Ljc1OCAxMTEuMzQ1VjE5My4wNjdINjgyLjUwM1YxMTYuMTkzQzY4Mi41MDMgMTEwLjU4IDY4MS40MTcgMTA1LjUyMSA2NzkuMjY1IDEwMUM2NzcuMSA5Ni40ODY2IDY3NC4wMzIgOTIuOTA4NSA2NzAuMDUgOTAuMjcyN0M2NjYuMDYxIDg3LjYzMDIgNjYxLjU3MyA4Ni4zMTIzIDY1Ni41NTIgODYuMzEyM0g2NDUuMzk3QzYzOC45OTYgODYuMzEyMyA2MzMuMjM4IDg4LjAxMjYgNjI4LjEyOCA5MS40MTk5QzYyMy4wMzMgOTQuODI3MyA2MTkuMDQzIDk5LjQ3MDYgNjE2LjE4OCAxMDUuMzM2QzYxMy4zMzMgMTExLjIxNSA2MTEuOTEyIDExNy40NjMgNjExLjkxMiAxMjQuMTA3VjE5My4wNkg1ODQuNjU2VjY0LjM1MjJINjExLjkzMloiIGZpbGw9IiNGNTRCMUUiLz4NCjxwYXRoIGQ9Ik01MTQuMTgzIDE2OS4zNTNDNTIwLjMxNyAxNjYuODA2IDUyNS4xMjYgMTYzLjA1NyA1MjguNTg5IDE1OC4xMTNDNTMyLjA0NiAxNTMuMTc2IDUzMy43ODEgMTQ3LjEzMyA1MzMuNzgxIDEzOS45ODRWMTM4LjcwN0M1MzMuNzgxIDEzNi42NjUgNTMzLjEzMiAxMzUuMDg4IDUzMS44MzQgMTMzLjk4OUM1MzAuNTI5IDEzMi44NzYgNTI4LjU4OSAxMzIuNSA1MjUuOTg2IDEzMi44MzVMNDk0Ljg0NCAxMzYuOTI1QzQ4Ny4wNjQgMTM3Ljk0OSA0ODAuOTE2IDEzOS45OTggNDc2LjQxNCAxNDMuMDU3QzQ3MS45MTMgMTQ2LjExNiA0NjkuNjY1IDE1MC41NDggNDY5LjY2NSAxNTYuMzM4QzQ2OS42NjUgMTYxLjc4NyA0NzEuNjk0IDE2NS45NTIgNDc1Ljc1OCAxNjguODU0QzQ3OS44MyAxNzEuNzUgNDg1Ljc1MiAxNzMuMTkgNDkzLjU0NiAxNzMuMTlDNTAxLjM0IDE3My4xOSA1MDguMDM1IDE3MS45MTQgNTE0LjE4MyAxNjkuMzY3VjE2OS4zNTNaTTQ1NC43NDYgMTg0LjY2OUM0NDYuMTggMTc3Ljg2MSA0NDEuOTA0IDE2OC44MzQgNDQxLjkwNCAxNTcuNjA4QzQ0MS45MDQgMTQ2LjM3NSA0NDYuMzEgMTM2Ljk1OSA0NTUuMTQzIDEyOS44OTlDNDYzLjk2MSAxMjIuODM4IDQ3NS43MzEgMTE4LjM2NSA0OTAuNDQ1IDExNi40ODhMNTI3LjAzOCAxMTIuMzk3QzUyOS40NTcgMTEyLjA1NiA1MzEuMjMzIDExMS4zMzkgNTMyLjM2IDExMC4yMzNDNTMzLjQ4NyAxMDkuMTIgNTM0LjA0NyAxMDcuNzIgNTM0LjA0NyAxMDYuMDJDNTM0LjA0NyAxMDEuNDE3IDUzMy4wMDkgOTcuNTUyNSA1MzAuOTI1IDk0LjQwNDZDNTI4Ljg1NSA5MS4yNDk5IDUyNS45NTIgODguNzg0OSA1MjIuMjI5IDg2Ljk4OUM1MTguNTEzIDg1LjIgNTE0LjIyNCA4NC4zMTIzIDUwOS4zODcgODQuMzEyM0g0OTYuOTI4QzQ4OS42NTkgODQuMzEyMyA0ODMuNjA3IDg2LjE5MDEgNDc4Ljc1NyA4OS45MzIxQzQ3My45MTQgOTMuNjgwOCA0NzEuMzE4IDk4Ljk1OTIgNDcwLjk3NyAxMDUuNzY3SDQ0Mi42ODNDNDQzLjIwMiA5Ni45MjQzIDQ0NS45NjkgODkuMTc0MSA0NTAuOTg5IDgyLjUzMDFDNDU2LjAxIDc1Ljg5MjkgNDYyLjU4MiA3MC44MjYzIDQ3MC43MSA2Ny4zMzdDNDc4LjgzOSA2My44NDc3IDQ4Ny42NzIgNjIuMDkyOCA0OTcuMTggNjIuMDkyOEg1MDkuMzc0QzUxOS40MDggNjIuMDkyOCA1MjguMzMgNjQuMDUyNSA1MzYuMTEgNjcuOTY1MkM1NDMuODk3IDcxLjg4NDcgNTUwLjA4NiA3Ny4zNzQ3IDU1NC42NjMgODQuNDQyQzU1OS4yNDYgOTEuNTA5NCA1NjEuNTQyIDk5LjczMDggNTYxLjU0MiAxMDkuMDkyTDU2MS40ODcgMTkyLjg2M0g1MzguOTM4TDUzOC45NTggMTgyLjUzOEM1MzguOTU4IDE4MS41NjIgNTM4LjcxMyAxODAuNTcyIDUzOC4xMjUgMTc5Ljc4QzUzNy40NzYgMTc4LjkxMyA1MzYuNjE1IDE3OC40MjEgNTM1LjU4NCAxNzguMzA1QzUzNC4wMjcgMTc4LjEzNCA1MzIuMzggMTc4LjkwNiA1MzAuNjUyIDE4MC41OTlDNTI2LjMyOCAxODQuNjg5IDUyMC41MzUgMTg4LjA5IDUxMy4yNjcgMTkwLjgyMUM1MDUuOTk5IDE5My41MzkgNDk4LjEzIDE5NC45MTIgNDg5LjY1MyAxOTQuOTEyQzQ3NC45MzkgMTk0LjkxMiA0NjMuMzA2IDE5MS41MTEgNDU0Ljc0NiAxODQuNjg5VjE4NC42NjlaIiBmaWxsPSIjRjU0QjFFIi8+DQo8cGF0aCBkPSJNMzUwLjQ3NCAyMTcuNzJDMzU0LjAxOSAyMTQuNTcyIDM1Ni41NzQgMjEwLjg1NyAzNTguMTM4IDIwNi42MUMzNTkuNjg5IDIwMi4zNDkgMzYwLjQ3NCAxOTguNTI1IDM2MC40NzQgMTk1LjEyNUMzNjAuNDc0IDE5Mi4yMjkgMzYwLjIzNSAxODkuNDQ0IDM1OS4xNyAxODYuNTYyQzM1MS4yMTIgMTY0LjkxNiAzMDkuMzM4IDY0LjM1NDUgMzA5LjMzOCA2NC4zNTQ1SDMzOC40MUMzMzguNDEgNjQuMzU0NSAzNzEuNjIzIDE0Ny4xNjkgMzcyLjQxNSAxNDkuMTQ5QzM3My4yMDcgMTUxLjEyOSAzNzQuNDc4IDE1Mi45OCAzNzYuMjg4IDE1Mi45OEMzNzguMDk4IDE1Mi45OCAzNzkuMzIxIDE1MS42OTYgMzgwLjE5NSAxNDkuMTQ5TDQxMi44OTUgNjQuMzU0NUg0NDEuNzAxTDM4MC45NjcgMjE0LjAxOUMzNzYuODE0IDIyNC43NDYgMzcxLjQwNCAyMzIuNjE5IDM2NC43NTEgMjM3LjY0NUMzNTguMDg0IDI0Mi42NjQgMzQ5LjgyNSAyNDUuMTc3IDMzOS45NjggMjQ1LjE3N0gzMjIuODM2VjIyMi40NTJIMzM3LjExM0MzNDIuNDc1IDIyMi40NTIgMzQ2LjkyOSAyMjAuODY4IDM1MC40NzQgMjE3LjczM1YyMTcuNzJaIiBmaWxsPSIjRjU0QjFFIi8+DQo8cGF0aCBkPSJNMjA2LjU1MiA1MS4xODUyQzIxNS42MTcgNTQuMTY5MiAyMjQuMTI4IDU3LjU4MzMgMjMxLjk2MyA2MS4zOTM2QzIzMy44NjIgNjIuMzE1NCAyMzQuNDkgNjAuODIgMjM0LjA2NyA1OS41NDMxQzIzMS4yMjUgNTAuOTM5MyAyMjcuODY0IDQyLjcwNDMgMjI0LjA0NiAzNC45MTMxQzIyMS4wNTQgMjguODIyMiAyMTYuMTM2IDIzLjkwNTggMjEwLjA0MiAyMC45MjE4QzIwMi4yNDggMTcuMDk3OSAxOTQuMDEgMTMuNzM4MyAxODUuNDAzIDEwLjg5NzdDMTg0LjEyNiAxMC40NzQ0IDE4Mi41ODkgMTAuOTkzMyAxODMuNTUyIDEzLjAwMDlDMTg3LjMzNiAyMC44NDY3IDE5MC43NzkgMjkuMzQxMiAxOTMuNzY0IDM4LjQwMjRDMTk1Ljc1OSA0NC40NTI0IDIwMC41IDQ5LjE5MTMgMjA2LjU1MiA1MS4xODUyWiIgZmlsbD0iI0Y1NEIxRSIvPg0KPHBhdGggZD0iTTEzNy41ODIgMjAzLjIzM0MxMjguMjAzIDIwMy43NDUgMTI1Ljk5NyAxOTguNDI2IDEyNi4xNTQgMTkyLjA5NkMxMjYuNDc1IDE3OS4zMTMgMTI2LjcgMTY1Ljc3OSAxMjYuODE2IDE1MS42OTlDMTI2Ljg3MSAxNDQuOTA1IDEyOS45MzggMTM5LjQzNSAxMzkuMTY3IDEzOS4zNTRDMTU0LjM4NiAxMzkuMjMxIDE2OC45NyAxMzguOTc4IDE4Mi42NTMgMTM4LjYxNkMxODcuMzExIDEzOC40OTMgMTkxLjE1NyAxNDAuNjcxIDE5MC44NyAxNDcuMDE1QzE5MC40MDYgMTU3LjM4NyAxODkuNTExIDE2Ny40ODYgMTg4LjI1NCAxNzcuMjI0QzE4Ny41MyAxODIuODY0IDE5MC4wNjQgMTg2Ljg5MyAxOTcuMDQ2IDE4NS41MTNDMjA5LjEyOSAxODMuMTM3IDIyMi4yODYgMTc5LjYxNCAyMzIuMjggMTc2LjE0NUMyMzcuNTE5IDE3NC4zMjIgMjQxLjMyNCAxNjkuNzYgMjQyLjE4NCAxNjQuMjg0QzI0NC4wMDEgMTUyLjgxMiAyNDQuOTU4IDE0MC44OTcgMjQ0Ljk1MSAxMjguNzIyQzI0NC45NTEgMTIzLjMyNyAyNDIuMTE2IDEyMS40MjkgMjM4LjI1IDEyMS4xODNDMjMwLjI0NCAxMjAuNjc4IDIyMS40MzkgMTIwLjIyIDIxMS45NzEgMTE5LjgyNEMyMDYuMzI5IDExOS41ODUgMjAxLjkyMyAxMTcuNTIzIDIwMS40ODYgMTA5LjQ1OUMyMDAuNTc3IDkyLjU3MjMgMTk4LjM3OCA3Ni40MzY4IDE5NS4xNjcgNjEuMzkzOUMxOTMuOTI0IDU1LjU3NjIgMTg5LjQxNSA1MS4wMzUzIDE4My41OTUgNDkuNzc4OUMxNjkuMTk2IDQ2LjY1ODMgMTUyLjE4IDQ0LjM1NzEgMTM2LjE2MSA0My40ODk5QzEzMC4xMTYgNDMuMTYyMiAxMjUuNDAyIDM5LjkzMjMgMTI1LjA1NCAzMi4yMzY4QzEyNC42NDQgMjMuMDUyNiAxMjQuMjA3IDE0LjQ5NjYgMTIzLjcyOSA2LjcwNTQ2QzEyMy41MTcgMy4zMTE3NiAxMjAuOTIxIDAgMTE2LjE4MSAwQzk4LjI0MjYgMCA4MC45Mzk4IDIuMDc1ODMgNjQuNjg5IDUuODk5NzJDNTguNDE4MiA3LjM4MTQ3IDUzLjI0NzEgMTEuNzU4NSA1MC43MjY1IDE3LjY4NTVDNDcuMTgxMiAyNi4wNDM0IDQ0LjAyNTMgMzUuMDg0MiA0MS4zMTM0IDQ0LjcwNTRDNDAuMDYzNCA0OS4xNTA3IDM2LjYwMDEgNTIuNjI2MyAzMi4xNTMxIDUzLjg3NTlDMjUuOTk4NSA1NS42MDM1IDIwLjA4MjkgNTcuNTIyMiAxNC40MjY4IDU5LjU5ODFDOS44ODQyNCA2MS4yNzEgNi40Njg3NiA2NS4xMDE3IDUuMjg3MDEgNjkuNzkyOEMzLjExNDc3IDc4LjQ1MTIgMS40NDgwMSA4Ni42MTggMC4wNTQ0OTk3IDk3Ljk3MzVDLTAuNDc4MzE1IDEwMi4zNzEgMi45ODQ5OCAxMDQuNTE1IDYuNTM3MDcgMTAzLjk2MkMxNC41NzAzIDEwMi43MTIgMjIuMzQzOSAxMDEuNzAyIDMxLjUzODQgMTAwLjcxOUMzNy42MTExIDEwMC4wNzcgNDIuNDQ3NCA5NS4yOSA0My4wNzU4IDg5LjIxMjdDNDMuNzM4NCA4Mi43NTk5IDQ0LjU2NSA3Ni40NTA1IDQ1LjU0MTggNzAuMzA1QzQ2LjUzOTEgNjQuMDI5NyA1MS40NTA2IDU5LjEwNjQgNTcuNzM1MSA1OC4xMDk1QzY5LjE3NjkgNTYuMyA4MS4xODU3IDU0Ljk2ODQgOTMuNjI0OSA1NC4yODU2QzEwMy43MDEgNTMuNzMyNSAxMDYuMzUxIDU5LjUxNjEgMTA2LjE4IDY2LjQ2MDZDMTA1Ljg3MyA3OC45ODM4IDEwNS42NjEgOTIuMjI0IDEwNS41NDUgMTA1Ljk3NkMxMDUuNDkgMTEyLjY0MSAxMDIuNTg3IDExOC4wMTUgOTMuNDIgMTE4LjA5Qzc1LjcxNDEgMTE4LjI0IDU4Ljg1NTMgMTE4LjU1NCA0My4yODA4IDExOS4wMTJDMzYuMDMzMSAxMTkuMjIzIDMwLjIzMzYgMTIyLjMwMyAzMC4zNDI5IDEzMi40M0MzMC41NDc5IDE1MS4wODUgMzIuMjg5OCAxNjguODQ1IDM1LjAwODUgMTg0LjYzOUMzNS44ODI4IDE4OS43MiAzNC40MjEgMTk0LjggMjYuMjMwNyAxOTIuNjlDMjAuNzM4NiAxOTEuMjE1IDE1LjQzNzggMTg5LjU5NyAxMC4zMTQ2IDE4Ny44NTVDNi41OTE3MiAxODYuNTg1IDUuNjgzMiAxODkuMjA3IDYuMzMyMTUgMTkxLjYxMUM5LjU0MjY5IDIwMy40NjUgMTMuNjM0NCAyMTQuNjc3IDE4LjQ5MTIgMjI1LjA3QzIwLjU0MDUgMjI5LjQ2MSAyNC4xNDczIDIzMi45NDMgMjguNjAxIDIzNC44NDhDMzYuNDA4OCAyMzguMTk0IDQ0LjYyNjUgMjQxLjA3NiA1My4xNzg4IDI0My41MTRDNTguOTY0NiAyNDUuMTU5IDU5LjQ1NjUgMjQxLjMwMSA1OC4yODg0IDIzOC4wODVDNTUuODI5MiAyMzEuMjkxIDUzLjU2ODIgMjI0LjA2NiA1MS42MDc3IDIxNi40NDZDNTAuNTg5OSAyMTIuNDcyIDUxLjM0MTMgMjA4LjIxOCA1OC4wNzY2IDIwOS40ODhDNzAuMjYzIDIxMS43ODkgODYuNTIwNyAyMTMuNTEgOTcuNTUyNyAyMTQuMDQyQzEwMy4yNyAyMTQuMzE1IDEwNi45NTIgMjE2LjEzOSAxMDcuMjI1IDIyMy4xNzlDMTA3LjUyNiAyMzAuNzc5IDEwNy44ODggMjM3Ljk0OCAxMDguMjcgMjQ0LjYzM0MxMDguNTEgMjQ4Ljc5OSAxMTAuMTYzIDI1Mi4wODMgMTE2LjE4OCAyNTIuMDgzQzEyOS4zNDQgMjUyLjA4MyAxNDIuMTM4IDI1MS4wMTggMTU0LjQ0MSAyNDkuMDA0QzE1OS41NzEgMjQ4LjE3MSAxNjMuNzc5IDI0NC40OSAxNjUuMzU3IDIzOS41MzNDMTY4LjM2MiAyMzAuMDYyIDE3MC45OTIgMjE5LjcwMyAxNzMuMTg1IDIwOC42MzRDMTc0LjA4IDIwNC4xIDE3My4wODkgMTk5LjY2OSAxNjUuNjc4IDIwMC42NDVDMTU2LjU5OSAyMDEuODQgMTQ2Ljk2MSAyMDIuNzIxIDEzNy41ODIgMjAzLjIzM1oiIGZpbGw9IiNGNTRCMUUiLz4NCjwvc3ZnPg0K" alt="Yanolja Logo" style="height: 36px; margin-bottom: 16px;">
+        <div style="font-size:2.4em; border-left: 8px solid #FF4F6E; padding-left: 16px; color: #333; line-height: 1.2; font-weight: bold;">
+            Biweekly Finance Briefing
+        </div>
+    </div>
+    <div style="font-size: 0.95em; color: #555; text-align: right; min-width: 120px; margin-bottom: 6px; font-family: Georgia, serif;">
+        September 17, 2025
+    </div>
+</div>
+
+    
+
+<div class="tab">
+<button class="tablinks" onclick="openTab(event, 'GAAP')">GAAP</button>
+<button class="tablinks" onclick="openTab(event, 'GAAS')">GAAS</button>
+<button class="tablinks" onclick="openTab(event, 'Tax')">Tax</button>
+<button class="tablinks" onclick="openTab(event, 'D&C')">D&C</button>
+<button class="tablinks" onclick="openTab(event, 'YIFRS')">YIFRS</button>
+<button class="tablinks" onclick="openTab(event, 'Notice')">Notice</button>
+</div>
+
+<div id="GAAP" class="tabcontent">
+<h2>GAAP</h2>
+
+
+<button class="accordion">기업회계기준서 제1117호 ‘보험계약’ 개정 공개초안 검토의견 조회</button>
+<div class="brief">한국회계기준원이 K-IFRS 1117(보험계약) 개정 공개초안에 대한 의견을 수렴합니다.</div>
+<div class="panel">
+<p>한국회계기준원은 보험사가 무·저해지 상품의 해지율을 산출할 때 감독기관의 원칙모형이 아닌 예외모형을 적용할 경우, 그 판단 근거와 재무적 영향을 재무제표 주석에 공시하도록 하는 기업회계기준서 제1117호 개정안을 발표했습니다. 이번 공개초안은 보험계약 회계의 적용·공시 명확화를 위한 개정사항에 대해 국내 실무 영향과 의견을 수렴하기 위한 절차입니다. 개정안은 2025년 12월 31일부터 시행될 예정입니다.</p>
+<a href="https://kasb.or.kr/front/boardA/View2002.do?siteCd=002000000000000&seq=2308&gubun=2002&tab=A&bu=A&searchfield=ALL&searchword=&categoryList=&s_date_start=&s_date_end=" target="_blank">원문 보기</a>
+</div>
+
+
+<button class="accordion">6월 IASB 및 IFRS 동향보고</button>
+<div class="brief">한국회계기준원이 국제회계기준위원회(IASB)에서 진행하는 IFRS 관련 프로젝트의 주요 내용을 공유했습니다.</div>
+<div class="panel">
+<p>한국회계기준원이 6월 국제회계기준위원회(IASB)에서 논의된 주요 내용을 요약한 보고서를 공개했습니다. 주요 제·개정 프로젝트 일정, 최근 회의 핵심 이슈(영업권·지분법·충당부채 등) 및 국제 IFRS 동향을 포함하고 있습니다. 국제 논의의 초점과 일정, 향후 국내 도입 시 고려사항을 파악하는 데 유용합니다.</p>
+<a href="https://kasb.or.kr/front/boardA/View2002.do?siteCd=002000000000000&seq=2306&gubun=2002&tab=A&bu=A&searchfield=ALL&searchword=&categoryList=&s_date_start=&s_date_end=" target="_blank">원문 보기</a>
+</div>
+
+
+<button class="accordion">2025 회계편람 발간</button>
+<div class="brief">한국공인회계사회가 최신 회계기준과 관련 규정을 반영한 2025 회계편람을 발간했습니다.</div>
+<div class="panel">
+<p>한국공인회계사회가 회원과 회계실무자의 업무 지원을 위해 2025 회계편람을 발간했습니다. 이번 편람은 PDF 형식으로도 제공되어 질의회신 원문으로 바로 이동할 수 있는 등 사용자 편의성을 높였습니다. 특히 최근 개정된 일반기업회계기준에는 법인세회계에 필라2 반영, 부채의 유동·비유동 분류 기준 개정, 연결재무제표 관련 규정 보완 등의 내용이 포함되어 실무자들에게 유용한 정보를 제공합니다.</p>
+<a href="https://webzine.kicpa.or.kr/news/articleView.html?idxno=1379" target="_blank">원문 보기</a>
+</div>
+
+
+</div>
+
+
+<div id="GAAS" class="tabcontent">
+<h2>GAAS</h2>
+
+
+<button class="accordion">증선위, KT&G 등 3사에 주기적 감사인 지정 3년 유예</button>
+<div class="brief">금융위원회 산하 증권선물위원회는 9월 10일, 회계·감사 지배구조가 우수한 KT&G, KB금융그룹, 현대차증권에 대해 주기적 감사인 지정을 3년간 면제하기로 결정했습니다.</div>
+<div class="panel">
+<p>주기적 지정제는 감사인과 회사 간의 유착을 방지하고 감사의 독립성을 확보하기 위해 도입된 제도이지만, 지배구조가 우수한 기업에는 자율성을 부여하자는 취지에서 인센티브 제도가 마련되었습니다. 이번에 선정된 기업들은 감사위원회 운영의 독립성, 내부회계관리제도의 안정성 등에서 높은 평가를 받았습니다. 금융당국은 이번 조치가 다른 기업들의 지배구조 개선 노력을 촉진하고, 회계 투명성 문화를 시장 전반에 확산시키는 긍정적인 계기가 될 것으로 기대하고 있습니다.</p>
+<a href="https://biz.chosun.com/stock/stock_general/2025/09/10/AQA6B3DIBBHYLEEFNXFBDH4ENU" target="_blank">원문 보기</a>
+</div>
+
+
+<button class="accordion">증선위, 회계부정 과징금 최대 2.5배 상향</button>
+<div class="brief">증권선물위원회는 고의적 분식회계 등 회계부정에 대한 과징금을 대폭 상향하고 감사 방해 행위에 대한 제재를 강화하는 등 처벌 수위를 높이기로 했습니다.</div>
+<div class="panel">
+<p>금융위원회 증권선물위원회는 회계부정에 대한 제재를 강화하기 위해 과징금 부과 기준을 대폭 상향 조정하기로 했습니다. 특히, 고의적인 분식회계에 대해서는 횡령·배임 수준의 과징금을 부과하고, 위반 기간이 길어질수록 과징금을 가중하는 등 처벌을 강화합니다. 이에 따라 회사에 부과되는 과징금은 최대 1.5배, 개인에게 부과되는 과징금은 최대 2.5배까지 늘어날 전망입니다. 이번 조치는 자본시장의 신뢰를 훼손하는 회계부정 행위를 근절하고, 감사의 독립성을 보장하기 위한 것으로 내년 상반기 시행을 목표로 하고 있습니다.</p>
+<a href="https://view.asiae.co.kr/article/2025082716504298377" target="_blank">원문 보기</a>
+</div>
+
+
+<button class="accordion">회계감사에 AI 에이전트 도입</button>
+<div class="brief">회계법인 EY한영은 내년부터 자체 개발한 인공지능(AI) 플랫폼을 회계감사에 도입할 계획입니다.</div>
+<div class="panel">
+<p>EY한영이 내년부터 회계감사 업무에 AI 에이전트를 본격적으로 도입합니다. 이는 감사인이 수행하던 단순 반복 작업을 AI가 대신 처리하게 하여, 감사인이 데이터의 심층 분석과 같은 더 중요한 판단에 집중할 수 있도록 돕습니다. EY의 글로벌 네트워크가 3조 원 이상을 투자해 개발한 이 AI 플랫폼은 폐쇄된 클라우드 환경에서 운영되어 고객사의 민감한 회계 정보 유출 위험을 차단했습니다. AI 도입으로 감사 시간이 단축되기보다는 방대한 데이터를 더 세밀하게 분석하여 감사의 정확성과 품질이 향상될 것으로 기대됩니다.</p>
+<a href="https://www.sedaily.com/NewsView/2GWUA5OX3Y" target="_blank">원문 보기</a>
+</div>
+
+
+</div>
+
+
+<div id="Tax" class="tabcontent">
+<h2>Tax</h2>
+
+
+<button class="accordion">2025 세법 개정안 국회 논의 본격화</button>
+<div class="brief">정부가 지난 7월 발표한 2025년 세법 개정안이 9월 정기국회에서 본격적인 심의에 들어갔습니다.</div>
+<div class="panel">
+<p>이번 개정안의 최대 쟁점은 법인세 최고세율을 24%에서 25%로 1%p 인상하는 안입니다. 정부는 코로나19 이후 증가한 재정 수요를 감당하고 재정 건전성을 확보하기 위해 증세가 불가피하다는 입장을 고수하고 있습니다. 반면, 재계는 글로벌 경쟁 심화와 고금리 상황에서 법인세 인상이 기업의 투자 및 고용 여력을 위축시켜 경제 전반에 부담을 줄 수 있다며 강력히 반발하고 있습니다. 국회 논의 과정에서 세율 조정 폭과 시기를 두고 여야 간 치열한 공방이 예상됩니다.</p>
+<a href="https://www.chosun.com/economy/economy_general/2025/07/31/P5SZKTCIDJBBVDNJ3Z3PPE463Y" target="_blank">원문 보기</a>
+</div>
+
+
+<button class="accordion">국세청, 추석 연휴 신고･납부기한 연장 결정</button>
+<div class="brief">국세청이 추석 연휴기간 각종 국세 관련 신고·납부기한 연장을 결정했습니다.</div>
+<div class="panel">
+<p>국세청이 연휴에 따른 납세자 불편 최소화를 위해 각종 신고·납부의 법정기한을 연장한다고 발표했습니다. 이번 조치는 원천세, 증권거래세, 인지세 신고·납부와 학자금 대출 원천공제 신고·납부 등의 업무에 적용되며, 기존 10월 10일(금)이었던 기한이 10월 15일(수)로 5일 늦춰집니다. 또한, 9월분 전자세금계산서의 발급 기한도 10월 15일로 연장됩니다.</p>
+<a href="https://nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1345368" target="_blank">원문 보기</a>
+</div>
+
+
+<button class="accordion">세무조사 자료 미제출 시 ‘이행강제금’ 부과 제도 시행</button>
+<div class="brief">세무조사 시 정당한 사유 없이 자료를 제출하지 않는 경우, 기존 과태료 대신 일 단위로 산정되는 이행강제금을 부과하는 제도가 새롭게 시행됩니다.</div>
+<div class="panel">
+<p>2025년 9월 15일부터 세무조사 시 자료 미제출에 대한 제재로 '이행강제금' 제도가 새롭게 시행됩니다. 이는 기존 과태료 제도가 실효성이 낮다는 지적에 따른 것으로, 새로운 이행강제금은 미제출 일수와 기업의 1일 평균 수입금액을 기준으로 매일 부과되어 기존 과태료 상한인 5천만 원을 훨씬 초과할 수 있습니다. 다만, 이행강제금의 상한 규정이 없고 '정당한 사유'에 대한 기준이 명확하지 않아 기업에 과도한 부담을 줄 수 있다는 우려가 제기되고 있습니다.</p>
+<a href="https://webzine.kicpa.or.kr/news/articleView.html?idxno=1161" target="_blank">원문 보기</a>
+</div>
+
+
+</div>
+
+
+<div id="D&C" class="tabcontent">
+<h2>D&C</h2>
+
+
+<button class="accordion">한국거래소, '중대재해' 상장사 공시의무 신설 규정개정 예고</button>
+<div class="brief">한국거래소는 중대재해가 발생한 상장사에 대해 관련 현황과 형사처벌 사실 등을 의무적으로 공시하도록 하는 규정 개정 절차에 착수했습니다.</div>
+<div class="panel">
+<p>한국거래소가 중대재해 발생 기업의 공시 의무를 신설하는 규정 개정을 추진합니다. 개정안에 따르면 상장사는 중대재해 발생 사실과 대응 조치, 그리고 관련 형사처벌 판결이 있을 때마다 이를 공시해야 합니다. 이러한 공시 의무는 지주회사의 자회사나 종속회사에서 발생한 중대재해에도 적용됩니다. 이 조치는 중대재해 발생 시 주가 변동성으로부터 투자자를 보호하기 위해 필요한 정보를 제공하는 것을 목표로 합니다.</p>
+<a href="https://www.yna.co.kr/view/AKR20250904065200008?input=1195m" target="_blank">원문 보기</a>
+</div>
+
+
+<button class="accordion">딜로이트 그룹, 2025 이사회 전문성 강화 프로그램 성료</button>
+<div class="brief">한국 딜로이트 그룹은 국내 주요 기업 이사회 및 감사위원회를 대상으로 사이버 보안, 개정 상법, 자금부정 방지를 핵심 과제로 제시했습니다.</div>
+<div class="panel">
+<p>한국 딜로이트 그룹이 주최한 '2025 이사회·감사위원회 전문성 강화 교육 프로그램'에서는 변화하는 비즈니스 환경에 대응하기 위해 이사회와 감사위원회의 역할 강화를 주제로 다루었습니다. 프로그램에서는 사이버 보안을 단순한 IT 문제가 아닌 경영 리스크로 인식하고 이에 대한 대응 전략을 모색했으며, 개정 상법에 따른 이사의 충실의무와 책임에 대한 실무적 방안을 논의했습니다. 또한, 최근 증가하는 자금부정 사례에 대응하기 위한 내부통제 강화 방안과 조기공시 현황 등에 대한 심층적인 토론이 이루어졌습니다.</p>
+<a href="https://www.deloitte.com/kr/ko/about/press-room/press-2025-09-12.html" target="_blank">원문 보기</a>
+</div>
+
+
+<button class="accordion">금융감독원, 기업공시서식 작성기준 개정안 시행</button>
+<div class="brief">기업공시서식 작성기준의 개정본이 9월 1일 정기·수시공시에 적용됩니다.</div>
+<div class="panel">
+<p>주요 개정 사항으로는 상장 이전 최대주주 및 특수관계인이 체결한 주주간 계약의 주요 내용과 이행 현황을 증권신고서와 정기보고서에 의무적으로 기재하도록 했습니다. 또한, 단일판매·공급계약 공시 이후 대금이 장기간 미수령된 경우 그 사유와 향후 계획을 상세히 기재하도록 하고, 주주제안권이 행사된 경우 제안 내용과 회사의 수용 여부 및 사유 등을 구체적으로 밝히도록 변경했습니다.</p>
+<a href="https://www.fss.or.kr/fss/bbs/B0000145/view.do?nttId=198907&menuNo=200152" target="_blank">원문 보기</a>
+</div>
+
+
+</div>
+
+
+</div>
+
+<div id="YIFRS" class="tabcontent">
+<h2>YIFRS</h2>
+
+<button class="accordion">물적분할 시 모기업의 별도재무제표 처리에 대한 감독지침을 마련</button>
+<div class="brief">최근 회계감독당국은 물적분할 시 모기업의 별도재무제표 처리에 대한 감독지침을 마련했습니다.</div>
+
+<div class="panel">
+  <p>전형적인 물적분할(자회사 주식 매각계획 없음)은 상업적 실질이 없는 교환거래로 판단되며, 이에 따라 별도재무제표상 매각예정자산 및 중단영업으로 구분표시하지 않아도 됨을 명확히 했습니다.</p>
+  <p>해당 지침은 과거 소급수정 부담 완화와 향후 회계처리 불확실성 해소에 기여할 것으로 기대됩니다.</p>
+  <p>단, 자회사 주식의 처분계획이 있다면 상업적 실질이 있는 매각거래로 간주되어 구분표시가 요구됩니다.</p>
+  <a href="https://www.fsc.go.kr/po010101/74029?curPage=32&srchBeginDt=&srchCtgry=1&srchEndDt=&srchKey=&srchText=&utm_source=chatgpt.com" target="_blank">원문 보기</a>
+</div>
+</div>
+
+<div id="Notice" class="tabcontent">
+  <h2>Notice</h2>
+  <p>경비 사용 규정 관련하여 아래와 같이 안내드립니다.</p>
+  <p>그룹 규정 통일 및 내부감사 후속 조치 일환으로 아래 경비 사용이 금지되었으니 참고 부탁드리겠습니다.</p>
+<p>해당 내용은 최초 공지 시점(8/1) 이후 사용분부터 적용됩니다.</p>
+    <p>상품권, 기프티콘 등 현금화 가능한 물품 구매 금지 (배달의민족/스타벅스 상품권 등)</p>
+    <p>이에 따라 관련 업종 및 전자상거래(ex. 네이버, 쿠팡, 지마켓, 이마트 등) 구매 시 상세 내역을 확인할 수 있는 증빙 첨부를 부탁드립니다.</p>
+    
+</div>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementsByClassName("tablinks")[0].click();
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>
